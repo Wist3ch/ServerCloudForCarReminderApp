@@ -1,0 +1,17 @@
+# render.yaml — Render.com deployment configuration
+# Place this file in the ROOT of your cloud_server folder
+# Then connect your GitHub repo to Render.com
+
+services:
+  - type: web
+    name: car-reminder-api
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGODB_URI
+        sync: false        # Set this manually in Render dashboard
+      - key: JWT_SECRET
+        sync: false        # Set this manually in Render dashboard
+      - key: PORT
+        value: 5000
